@@ -10,24 +10,34 @@ game.Player = me.Entity.extend({
                     return(new me.Rect(0, 0, 64, 64)).toPolygon();
                 }
             }]);
-
+        
         this.body.setVelocity(5, 20);
 
         this.renderable.addAnimation("idle", [78]);
         this.renderable.addAnimation("walk", [117, 118, 119, 120, 121, 122, 123, 124, 125], 80);
-
+        this.renderable.addAnimation("attack", [65, 66, 67, 69, 70, 71, 72], 80);
         this.renderable.setCurrentAnimation("idle");
     },
+    
     update: function(delta) {
         if (me.input.isKeyPressed("right")) {
             this.body.vel.x += this.body.accel.x * me.timer.tick;
             //this.renderable.setCurrentAnimation("smallWalk");
+            //set.Velocity() and multiplying it by me.timer.tick.
+            //me.timer.tick makes the movement look smooth
         }
         else if (me.input.isKeyPressed("left")) {
             this.body.vel.x -= this.body.accel.x * me.timer.tick;
 
         } else {
             this.body.vel.x = 0;
+        }
+        
+        if(me.input.isKeyPressed("attack")){
+            if(!this.renderable.isCurrentAnimation("attack")){
+                //Sets the current animation to attack  
+                this.renderable.setCurrentAnimation("attack", "idle");
+            }
         }
 
        if (me.input.isKeyPressed("jump")) {
