@@ -10,7 +10,7 @@ game.Player = me.Entity.extend({
                     return(new me.Rect(0, 0, 64, 64)).toPolygon();
                 }
             }]);
-        
+
         this.body.setVelocity(5, 20);
 
         this.renderable.addAnimation("idle", [78]);
@@ -18,7 +18,6 @@ game.Player = me.Entity.extend({
         this.renderable.addAnimation("attack", [65, 66, 67, 69, 70, 71, 72], 80);
         this.renderable.setCurrentAnimation("idle");
     },
-    
     update: function(delta) {
         if (me.input.isKeyPressed("right")) {
             this.body.vel.x += this.body.accel.x * me.timer.tick;
@@ -32,15 +31,8 @@ game.Player = me.Entity.extend({
         } else {
             this.body.vel.x = 0;
         }
-        
-        if(me.input.isKeyPressed("attack")){
-            if(!this.renderable.isCurrentAnimation("attack")){
-                //Sets the current animation to attack  
-                this.renderable.setCurrentAnimation("attack", "idle");
-            }
-        }
 
-       if (me.input.isKeyPressed("jump")) {
+        if (me.input.isKeyPressed("jump")) {
             this.body.vel.y -= this.body.accel.y * me.timer.tick;
         }
 
@@ -52,7 +44,13 @@ game.Player = me.Entity.extend({
             this.renderable.setCurrentAnimation("idle");
         }
 
-
+        if (me.input.isKeyPressed("attack")) {
+            if (!this.renderable.isCurrentAnimation("attack")) {
+                //Sets the current animation to attack  
+                this.renderable.setCurrentAnimation("attack", "idle");
+                this.renderable.setAnimationFrame();
+            }
+        }
 
         this.body.update(delta);
 
@@ -80,7 +78,7 @@ game.PlayerBaseEntity = me.Entity.extend({
         //console.log("init");
         this.type = "PlayerBaseEntity";
 
-   //     this.renderable.a
+        //     this.renderable.a
     },
     update: function(delta) {
         if (this.health <= 0) {
