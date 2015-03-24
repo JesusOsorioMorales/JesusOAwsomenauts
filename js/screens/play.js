@@ -14,6 +14,7 @@ game.PlayScreen = me.ScreenObject.extend({
                 me.input.bindKey(me.input.KEY.A, "attack");
                 me.input.bindKey(me.input.KEY.LEFT, "left");
                 me.input.bindKey(me.input.KEY.UP, "up");
+                
 
 		// add our HUD to the game world
 		this.HUD = new game.HUD.Container();
@@ -29,3 +30,4 @@ game.PlayScreen = me.ScreenObject.extend({
 		me.game.world.removeChild(this.HUD);
 	}
 });
+
