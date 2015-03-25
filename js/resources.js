@@ -9,7 +9,7 @@ game.resources = [
         {name: "player", type:"image", src: "data/img/skeletonDagger.png"},
         {name: "Logo_Colour", type:"image", src: "data/img/Logo_Colour.jpg"},
         {name: "tower", type:"image", src: "data/img/tower_round.svg.png"},
-        {name: "Logo_Colour", type:"image", src: "data/img/Logo_Colour.jpg"},
+        {name: "images", type:"image", src: "data/img/images.jpg"},
 
 
 	/* Atlases 
