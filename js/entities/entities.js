@@ -32,7 +32,7 @@ game.Player = me.Entity.extend({
             //set.Velocity() and multiplying it by me.timer.tick.
             //me.timer.tick makes the movement look smooth
             this.facing = "right";
-            this.flipX(false);
+            this.flipX(true);
         }
         else if (me.input.isKeyPressed("left")) {
             this.body.vel.x -= this.body.accel.x * me.timer.tick;
