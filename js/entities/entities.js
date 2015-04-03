@@ -18,6 +18,7 @@ game.PlayerEntity = me.Entity.extend({
         this.now = new Date().getTime();
         this.lastHit = this.now;
         this.dead = false;
+        this.attack = game.data.playerAttack;
         this.lastAttack = new Date().getTime();
 
         me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH);
@@ -83,7 +84,6 @@ game.PlayerEntity = me.Entity.extend({
     
     loseHealth: function(damage) {
         this.health = this.health - damage;
-        console.log(this.health);
     },
     
     collideHandler: function(response) {
@@ -105,7 +105,6 @@ game.PlayerEntity = me.Entity.extend({
             }
 
             if (this.renderable.isCurrentAnimation("attack") && this.now - this.lastHit >= game.data.playerAttackTimer) {
-                console.log("tower Hit");
                 this.lastHit = this.now;
                 response.b.loseHealth(game.data.playerAttack);
             }
@@ -115,12 +114,12 @@ game.PlayerEntity = me.Entity.extend({
             
             if (xdif>0) {
                 //this.pos.x = this.pos.x + 1;
-                if(this.faceing==="left"){
+                if(this.facing==="left"){
                     this.body.vel.x = 0; 
                 }
             }else{
                 //this.pos.x = this.pos.x - 1;
-                if(this.faceing==="right"){
+                if(this.facing==="right"){
                     this.body.vel.x = 0; 
                 }
             }
@@ -130,6 +129,12 @@ game.PlayerEntity = me.Entity.extend({
                   ((xdif>0) && this.facing==="left") || ((xdif<0) && this.facing==="right"))
                   {
             this.lastHit = this.now;
+            //if the creeps health is lower than our attack, execute code  in if statement
+            if(response.b.health <= game.data.playerAttack){
+                //adds one gold for a creep kill
+                game.data.gold += 1;
+                console.log("Current gold: " + game.data.gold);
+            }
             response.b.loseHealth(game.data.playerAttack);
         }
     }
@@ -277,7 +282,7 @@ game.EnemyCreep = me.Entity.extend({
             //cheecks that it has been atleast 1 secondsince this creep hit
             if((this.now-this.lastHit >= 1000)){
                 this.lastHit = this.now;
-                response.b.loseHealth(gsme.data.enemyCreepAttack);
+                response.b.loseHealth(game.data.enemyCreepAttack);
             }
         }else  if (response.b.type==='PlayerEntity'){
                 var xdif = this.pos.x - response.b.pos.x;
@@ -306,25 +311,30 @@ game.GameManager = Object.extend({
     init: function(x, y, settings) {
         this.now = new Date().getTime();
         this.lastCreep = new Date().getTime();
-        
+        this.paused = false;
         this.alwaysUpdate = true;
     },
     
     update: function() {
         this.now = new Date().getTime();
-        
+                
         if(game.data.player.dead){
             me.game.world.removeChild(game.data.player);
             me.state.current().resetPlayer(10, 0);
         }
+         
+        if(Math.round(this.now/1000)%20 ===0  && (this.now - this.lastCreep >= 1000)) {
+           game.data.gold += 1;
+           console.log("Current  gold: "  + game.data.gold);
+        }
         
         if(Math.round(this.now/1000)%10 ===0  && (this.now - this.lastCreep >= 1000)) {
+            console.log("creep");
             this.lastCreep = this.now;
             var creeps = me.pool.pull("EnemyCreep", 1000, 0, {});
-            me.game.world.addChild(creeps, 5);
+            me.game.world.addChild(creeps, 10);
         }
-      
-     
+        
         return true;
     }
-    });
+});

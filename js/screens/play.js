@@ -5,10 +5,11 @@ game.PlayScreen = me.ScreenObject.extend({
 	onResetEvent: function() {
 		// reset the score
 		game.data.score = 0;
+
                 me.levelDirector.loadLevel("level01");
-                
+
                 this.resetPlayer(50, 420);
-                                
+                             
                 var gamemanager = me.pool.pull("GameManager", 0, 0, {});
                 me.game.world.addChild(gamemanager, 0);
                 
