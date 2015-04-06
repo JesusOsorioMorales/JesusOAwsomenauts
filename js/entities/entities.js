@@ -1,5 +1,22 @@
 game.PlayerEntity = me.Entity.extend({
     init: function(x, y, settings) {
+        this.setSuper(x, y);        
+        this.setPlayerTimer();
+        this.setAttributes();
+        
+        this.type = "PlayerEntity";        
+        
+        this.setFlags();
+        
+                        
+        me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH);
+        
+        this.addAnimation();
+        
+        this.renderable.setCurrentAnimation("idle");
+    },
+    
+    setSuper: function(x, y) {
         this._super(me.Entity, 'init', [x, y, {
                 image: "player",
                 width: 64,
@@ -10,23 +27,29 @@ game.PlayerEntity = me.Entity.extend({
                     return(new me.Rect(0, 0, 64, 64)).toPolygon();
                 }
             }]);
-
-        this.type = "PlayerEntity";
-        this.health = game.data.playerHealth;
-        this.body.setVelocity(game.data.playerMoveSpeed, 20);
-        this.facing = "right";
+    },
+    
+    setPlayerTimer: function() {
         this.now = new Date().getTime();
         this.lastHit = this.now;
-        this.dead = false;
-        this.attack = game.data.playerAttack;
         this.lastAttack = new Date().getTime();
-
-        me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH);
-
+    },      
+    
+    setAttributes: function() {
+        this.health = game.data.playerHealth;
+        this.body.setVelocity(game.data.playerMoveSpeed, 20);
+        this.attack = game.data.playerAttack;
+    },
+    
+    setFlags: function() {
+        this.facing = "right";        
+        this.dead = false;
+    },
+    
+    addAnimation: function(){
         this.renderable.addAnimation("idle", [78]);
         this.renderable.addAnimation("walk", [117, 118, 119, 120, 121, 122, 123, 124, 125], 80);
         this.renderable.addAnimation("attack", [65, 66, 67, 69, 70, 71, 72], 80);
-        this.renderable.setCurrentAnimation("idle");
     },
     
     update: function(delta) {
@@ -94,7 +117,7 @@ game.PlayerEntity = me.Entity.extend({
 
             if (ydif < -40 && xdif < 70 && xdif > -35) {
                 this.body.falling = false;
-                this.body.vel.y = -1;
+                //this.body.vel.y = -1;
             }
             else if (xdif > -35 && this.facing === 'right' && (xdif > 0)) {
                 this.body.vel.x = 0;
@@ -293,7 +316,7 @@ game.EnemyCreep = me.Entity.extend({
             this.body.vel.x = 0; 
             if(xdif>0){
                 //keeps moving the creep to the right to maintain its position
-            this.pos.x =this.pox.x + 1;
+            this.pos.x =this.pos.x + 1;
            
             }
             //cheecks that it has been atleast 1 secondsince this creep hit
@@ -325,11 +348,11 @@ game.GameManager = Object.extend({
          
         if(Math.round(this.now/1000)%20 ===0  && (this.now - this.lastCreep >= 1000)) {
            game.data.gold += 1;
-           console.log("Current  gold: "  + game.data.gold);
+          // console.log("Current  gold: "  + game.data.gold);
         }
         
         if(Math.round(this.now/1000)%10 ===0  && (this.now - this.lastCreep >= 1000)) {
-            console.log("creep");
+           // console.log("creep");
             this.lastCreep = this.now;
             var creeps = me.pool.pull("EnemyCreep", 1000, 0, {});
             me.game.world.addChild(creeps, 10);
