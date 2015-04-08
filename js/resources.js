@@ -31,7 +31,9 @@ game.resources = [
         /* Background music. 
 	 * @example
 	 * {name: "example_bgm", type: "audio", src: "data/bgm/"},
-	 */	
+	 */
+        
+       // {name: "background music", type: "audio", src: "data/bgm/dont-fall-asleep-in-a-warzone-soundcloud"},
 
 	/* Sound effects. 
 	 * @example
