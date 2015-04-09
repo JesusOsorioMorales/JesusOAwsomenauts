@@ -13,7 +13,7 @@ game.TitleScreen = me.ScreenObject.extend({
                 this.font = new me.Font("Arial", 46, "white");
             },
             draw: function(renderer) {
-                this.font.draw(renderer.getContext(), "lameauts!", 450, 130);
+                this.font.draw(renderer.getContext(), "astronauts", 450, 130);
                 this.font.draw(renderer.getContext(), "press the button on top of shift", 250, 530);
             }
         })));
