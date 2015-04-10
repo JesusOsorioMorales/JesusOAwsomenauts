@@ -8,7 +8,7 @@ game.PlayerEntity = me.Entity.extend({
 
         this.setFlags();
 
-        this.body.setVelocity(5, 20);
+        this.body.setVelocity(100, 100);
         me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH);
 
         this.addAnimation();
@@ -44,6 +44,7 @@ game.PlayerEntity = me.Entity.extend({
     setFlags: function() {
         this.facing = "right";
         this.dead = false;
+        this.attacking = false;
     },
     
     addAnimation: function() {
@@ -55,11 +56,13 @@ game.PlayerEntity = me.Entity.extend({
     update: function(delta) {
         this.now = new Date().getTime();
         
-        this.dead = checkIfDead();
+       // this.dead = checkIfDead();
         
         this.checkKeyPressesAndMove();
+        
+        
 
-        if (me.input.isKeyPressed("attack")) {
+        if (this.attacking) {
             if (!this.renderable.isCurrentAnimation("attack")) {
                 //Sets the current animation to attack  
                 this.renderable.setCurrentAnimation("attack", "idle");
@@ -104,13 +107,15 @@ game.PlayerEntity = me.Entity.extend({
             }
         } else if (!this.renderable.isCurrentAnimation("attack")) {
             this.renderable.setCurrentAnimation("idle");
-        }  
+        }
+        this.attacking = me.input.isKeyPressed("attack");
     },
     
     moveRight: function(){
-         //this.renderable.setCurrentAnimation("smallWalk");
-            //set.Velocity() and multiplying it by me.timer.tick.
-            //me.timer.tick makes the movement look smooth
+        this.body.vel.x += this.body.accel.x * me.timer.tick;
+   //      this.renderable.setCurrentAnimation("smallWalk");
+           //set.Velocity ()and multiplying it by me.timer.tick
+           //me.timer.tick makes the movement look smooth
             this.facing = "right";
             this.flipX(true);
     },
@@ -288,7 +293,7 @@ game.EnemyCreep = me.Entity.extend({
         //keep track of the last time our creep hit anything
         this.lastHit = new Date().getTime();
         this.now = new Date().getTime();
-        this.body.setVelocity(3, 20);
+        this.body.setVelocity(5, 20);
 
         this.type = "EnemyCreep";
 
