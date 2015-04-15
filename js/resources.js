@@ -1,4 +1,4 @@
-game.resources = [
+                game.resources = [
 
 	/* Graphics. 
 	 * @example
@@ -13,6 +13,7 @@ game.resources = [
         {name: "logo11w", type:"image", src: "data/img/logo11w.png"},
         {name: "creep1", type:"image", src: "data/img/brainmonster.png"},
         {name: "title-screen", type:"image", src: "data/img/title.png"},
+        {name: "exp-screen", type:"image", src: "data/img/loadpic.png"},
         
 	/* Atlases 
 	 * @example

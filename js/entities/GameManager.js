@@ -1,7 +1,35 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+game.GameTimerManager = Object.extend({
+    init: function(x, y, settings) {
+        this.now = new Date().getTime();
+        this.lastCreep = new Date().getTime();
+        this.paused = false;
+        this.alwaysUpdate = true;
+    },
+    update: function() {
+        this.now = new Date().getTime();
+
+        this.goldTimerCheck();
+
+        this.creepTimerCheck();
+
+
+
+        return true;
+    },
+    goldTimerCheck: function() {
+        if (Math.round(this.now / 1000) % 20 === 0 && (this.now - this.lastCreep >= 1000)) {
+            game.data.gold += 1;
+        }
+    },
+    creepTimerCheck: function() {
+        if (Math.round(this.now / 1000) % 10 === 0 && (this.now - this.lastCreep >= 1000)) {
+
+            this.lastCreep = this.now;
+            var creeps = me.pool.pull("EnemyCreep", 1000, 0, {});
+            me.game.world.addChild(creeps, 10);
+        }
+    }
+
+});
 
 
