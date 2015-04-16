@@ -8,7 +8,7 @@ game.PlayerEntity = me.Entity.extend({
 
         this.setFlags();
 
-        this.body.setVelocity(100, 100);
+        this.body.setVelocity(10, 10);
         me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH);
 
         this.addAnimation();
@@ -249,7 +249,3 @@ game.ExperienceManager = Object.extend({
     }
 
 });
-
-
-
-
