@@ -6,7 +6,7 @@
 	 */
         {name: "background-tiles", type:"image", src: "data/img/background-tiles.png"},
         {name: "meta-tiles", type:"image", src: "data/img/meta-tiles.png"},
-        {name: "player", type:"image", src: "data/img/skeletonDagger.png"},
+        {name: "player", type:"image", src: "data/img/gloop.png"},
         {name: "Logo_Colour", type:"image", src: "data/img/Logo_Colour.jpg"},
         {name: "tower", type:"image", src: "data/img/tower_round.svg.png"},
         {name: "images", type:"image", src: "data/img/images.jpg"},
@@ -14,6 +14,7 @@
         {name: "creep1", type:"image", src: "data/img/brainmonster.png"},
         {name: "title-screen", type:"image", src: "data/img/title.png"},
         {name: "exp-screen", type:"image", src: "data/img/loadpic.png"},
+        {name: "gold-screen", type:"image", src: "data/img/spend.png"},
         
 	/* Atlases 
 	 * @example
