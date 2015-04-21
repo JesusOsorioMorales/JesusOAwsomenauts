@@ -29,7 +29,8 @@ var game = {
         exp3: 0,
         exp4: 0,
         pausePos: "",
-        buyscreen: ""
+        buyscreen: "",
+        buytext: ""
    },
     // Run on page load.
     "onload": function() {
