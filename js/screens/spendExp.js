@@ -13,9 +13,6 @@ game.SpendExp = me.ScreenObject.extend({
         var exp1cost = ((game.data.exp1 + 1) * 10);
         //me.input.bindKey(me.input.KEY.ENTER, "start");
 
-        
-        
-
         this.handler = me.event.subscribe(me.event.KEYDOWN, function(action, keyCode, edge){
             if(action === "F1"){
                 if(game.data.exp >= exp1cost){
