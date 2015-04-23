@@ -15,6 +15,7 @@
         {name: "title-screen", type:"image", src: "data/img/title.png"},
         {name: "exp-screen", type:"image", src: "data/img/loadpic.png"},
         {name: "gold-screen", type:"image", src: "data/img/spend.png"},
+        {name: "download", type:"image", src: "data/img/download.jpg"},
         
 	/* Atlases 
 	 * @example
