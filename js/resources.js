@@ -12,12 +12,12 @@
         {name: "images", type:"image", src: "data/img/images.jpg"},
         {name: "logo11w", type:"image", src: "data/img/logo11w.png"},
         {name: "creep1", type:"image", src: "data/img/brainmonster.png"},
-        {name: "title-screen", type:"image", src: "data/img/title.png"},
+        {name: "title-screen", type:"image", src: "data/img/type1.png"},
         {name: "exp-screen", type:"image", src: "data/img/loadpic.png"},
         {name: "gold-screen", type:"image", src: "data/img/spend.png"},
         {name: "download", type:"image", src: "data/img/download.jpg"},
         {name: "load-screen", type:"image", src: "data/img/loadpic.png"},
-        {name: "new-screen", type:"image", src: "data/img/newpic.png"},
+        {name: "new-screen", type:"image", src: "data/img/two.png"},
         
 	/* Atlases 
 	 * @example

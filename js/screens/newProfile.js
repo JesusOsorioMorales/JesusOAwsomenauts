@@ -21,7 +21,7 @@ game.NewProfile = me.ScreenObject.extend({
 
             },
         draw: function(renderer) {
-                this.font.draw(renderer.getContext(), "PICK A USEENAME AND PASSWORD" + game.data.gold, this.pos.x, this.pos.y);
+                this.font.draw(renderer.getContext(), "PICK A USER\n\NAME AND PASSWORD" + game.data.gold, this.pos.x, this.pos.y);
                 }
             
         })));

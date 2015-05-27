@@ -57,8 +57,8 @@ var game = {
 //        console.log(game.data.exp1);
 
         me.state.SPENDEXP = 112;
-        me.state.LOAD = 112;
-        me.state.NEW = 112;
+        me.state.LOAD = 113;
+        me.state.NEW = 114;
         
         // Initialize the audio.
         me.audio.init("mp3,ogg");

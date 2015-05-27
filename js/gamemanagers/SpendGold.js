@@ -65,7 +65,7 @@ game.SpendGold = Object.extend({
     stopBuying: function() {
         this.buying = false;
         me.state.resume(me.state.PLAY);
-        game.data.player.body.setVelocity(0, 0);
+        game.data.player.body.setVelocity(5, 20);
         me.game.world.removeChild(game.data.buyscreen);
         me.input.unbindKey(me.input.KEY.F1, "F1", true);
         me.input.unbindKey(me.input.KEY.F2, "F2", true);

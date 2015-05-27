@@ -3,17 +3,21 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/JesusOAwsomenauts/js/screens/spendExp.js</file>
-            <file>file:/C:/xampp/htdocs/JesusOAwsomenauts/js/entities/entities.js</file>
-            <file>file:/C:/xampp/htdocs/JesusOAwsomenauts/js/entities/EnemyCreep.js</file>
-            <file>file:/C:/xampp/htdocs/JesusOAwsomenauts/data/img/wizard.png</file>
-            <file>file:/C:/xampp/htdocs/JesusOAwsomenauts/js/screens/title.js</file>
+            <file>file:/C:/xampp/htdocs/JesusOAwsomenauts/php/controller/create-db.php</file>
+            <file>file:/C:/xampp/htdocs/JesusOAwsomenauts/php/model/config.php</file>
             <file>file:/C:/xampp/htdocs/JesusOAwsomenauts/js/screens/play.js</file>
-            <file>file:/C:/xampp/htdocs/JesusOAwsomenauts/index.php</file>
-            <file>file:/C:/xampp/htdocs/JesusOAwsomenauts/js/entities/PlayerBaseEntity.js</file>
+            <file>file:/C:/xampp/htdocs/JesusOAwsomenauts/js/gamemanagers/GameManager.js</file>
             <file>file:/C:/xampp/htdocs/JesusOAwsomenauts/js/resources.js</file>
-            <file>file:/C:/xampp/htdocs/JesusOAwsomenauts/js/game.js</file>
-            <file>file:/C:/xampp/htdocs/JesusOAwsomenauts/js/entities/EnemyBaseEntity.js</file>
+            <file>file:/C:/xampp/htdocs/JesusOAwsomenauts/php/controller/save-user.php</file>
+            <file>file:/C:/xampp/htdocs/JesusOAwsomenauts/index.css</file>
+            <file>file:/C:/xampp/htdocs/JesusOAwsomenauts/js/screens/spendExp.js</file>
+            <file>file:/C:/xampp/htdocs/JesusOAwsomenauts/js/screens/newProfile.js</file>
+            <file>file:/C:/xampp/htdocs/JesusOAwsomenauts/php/controller/create-user.php</file>
+            <file>file:/C:/xampp/htdocs/JesusOAwsomenauts/js/screens/title.js</file>
+            <file>file:/C:/xampp/htdocs/JesusOAwsomenauts/data/img/skeletonBigSword.png</file>
+            <file>file:/C:/xampp/htdocs/JesusOAwsomenauts/index.php</file>
+            <file>file:/C:/xampp/htdocs/JesusOAwsomenauts/js/screens/loadProfile.js</file>
+            <file>file:/C:/xampp/htdocs/JesusOAwsomenauts/php/controller/login-user.php</file>
         </group>
     </open-files>
 </project-private>
